@@ -1,0 +1,11 @@
+FROM node:16-slim
+
+WORKDIR /app
+
+COPY . .
+RUN rm -rf node_modules
+RUN npm ci --only=production
+
+EXPOSE 6000
+
+CMD ["npm", "start"]

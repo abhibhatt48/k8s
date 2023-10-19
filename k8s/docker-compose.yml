@@ -1,0 +1,20 @@
+services:
+  container1:
+    image: abhi4822/container1
+    ports:
+      - "6000:6000"
+    volumes:
+      - type: bind
+        source: ./file.dat
+        target: /app/file.dat
+    depends_on:
+      - container2
+
+  container2:
+    image: abhi4822/container2
+    ports:
+      - "6001:6001"
+    volumes:
+      - type: bind
+        source: ./file.dat
+        target: /app/file.dat
